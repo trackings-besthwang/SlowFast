@@ -115,4 +115,5 @@ def demo(cfg):
 
         frame_provider.join()
         frame_provider.clean()
+        
         logger.info("Finish demo in: {}".format(time.time() - start))
