@@ -141,3 +141,6 @@ pretrained
 YOLOX_outputs
 *.pyth
 out.mp4
+videos/
+.idea/
+outputs/

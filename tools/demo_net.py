@@ -107,8 +107,12 @@ def demo(cfg):
         start = time.time()
         if cfg.DEMO.THREAD_ENABLE:
             frame_provider = ThreadVideoManager(cfg)
+            logger.info("ThreadVideoManager")
+            print("hello 1")
         else:
             frame_provider = VideoManager(cfg)
+            logger.info("ideoManager")
+            print("hello 2")
 
         for task in tqdm.tqdm(run_demo(cfg, frame_provider)):
             frame_provider.display(task)
