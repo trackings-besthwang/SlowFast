@@ -11,6 +11,8 @@ import torch
 import torch.multiprocessing as mp
 from slowfast.datasets import cv2_transform
 from slowfast.visualization.predictor import Predictor
+import itertools, threading
+import os, datetime as dt
 
 logger = logging.get_logger(__name__)
 
@@ -126,6 +128,8 @@ class AsycnActionPredictor:
 
 class AsyncVis:
     class _VisWorker(mp.Process):
+        _idgen = itertools.count(0)
+        _idlock = threading.Lock()
         def __init__(self, video_vis, task_queue, result_queue):
             """
             Visualization Worker for AsyncVis.
@@ -137,20 +141,32 @@ class AsyncVis:
             self.video_vis = video_vis
             self.task_queue = task_queue
             self.result_queue = result_queue
-            super().__init__()
 
+            with type(self)._idlock:
+                self.worker_id = next(type(self)._idgen)
+        
+            
+            super().__init__(name=f"VisWorker-{self.worker_id}")
+
+        def _log(self, msg):
+            now = dt.datetime.now().strftime("%H:%M:%S")
+            print(f"[{now}] pid={os.getpid()} name={mp.current_process().name} :: {msg}", flush=True)
+        
         def run(self):
             """
             Run visualization asynchronously.
             """
+            self._log("run() start")
             while True:
                 task = self.task_queue.get()
                 if isinstance(task, _StopToken):
+                    self._log("stop token received; exiting")
                     break
-
+                self._log(f"got task {getattr(task, 'id', None)}")        
                 frames = draw_predictions(task, self.video_vis)
                 task.frames = np.array(frames)
                 self.result_queue.put(task)
+                self._log(f"put result for task {getattr(task, 'id', None)}")
 
     def __init__(self, video_vis, n_workers=None):
         """

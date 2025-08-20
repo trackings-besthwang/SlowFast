@@ -63,6 +63,9 @@ class VideoManager:
         self.test_crop_size = cfg.DATA.TEST_CROP_SIZE
         self.clip_vis_size = cfg.DEMO.CLIP_VIS_SIZE
 
+        #if self.output_file is None:
+        #    cv2.namedWindow("SlowFast", cv2.WINDOW_NORMAL)
+
     def __iter__(self):
         return self
 
@@ -122,9 +125,12 @@ class VideoManager:
         for frame in task.frames[task.num_buffer_frames :]:
             if self.output_file is None:
                 cv2.imshow("SlowFast", frame)
+                #if cv2.waitKey(1) & 0xFF == ord("q"):
+                #    break
                 time.sleep(1 / self.output_fps)
             else:
                 self.output_file.write(frame)
+                #print("write file")
 
     def clean(self):
         """
@@ -204,6 +210,10 @@ class ThreadVideoManager:
         self.output_lock = threading.Lock()
         self.stopped = False
         atexit.register(self.clean)
+
+        #cv2.namedWindow("SlowFast", cv2.WINDOW_NORMAL)
+        #cv2.resizeWindow("SlowFast)", 960, 540)  # 화면보다 너무 크면 렌더링 지연
+        #cv2.waitKey(1)
 
     def get_output_file(self, path, fps=30):
         """

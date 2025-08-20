@@ -449,6 +449,7 @@ class VideoVisualizer:
                 top_scores.append(pred[mask].tolist())
                 top_class = torch.squeeze(torch.nonzero(mask), dim=-1).tolist()
                 top_classes.append(top_class)
+                #print(f"top_scores : {len(top_scores)}")
 
         # Create labels top k predicted classes with their scores.
         text_labels = []
@@ -495,6 +496,7 @@ class VideoVisualizer:
             text = text_labels[0]
             pred_class = top_classes[0]
             colors = [self._get_color(pred) for pred in pred_class]
+            #print(f"text:{text}, alpha:{text_alpha}")
             frame_visualizer.draw_multiple_text(
                 text,
                 torch.Tensor([0, 5, frame.shape[1], frame.shape[0] - 5]),
