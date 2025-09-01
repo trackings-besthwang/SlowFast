@@ -909,7 +909,7 @@ _C.LOG_PERIOD = 10
 _C.LOG_MODEL_INFO = True
 
 # Distributed backend.
-_C.DIST_BACKEND = "nccl"
+_C.DIST_BACKEND = "gloo"
 
 # ---------------------------------------------------------------------------- #
 # Benchmark options
@@ -965,16 +965,16 @@ _C.DETECTION.ROI_XFORM_RESOLUTION = 7
 _C.AVA = CfgNode()
 
 # Directory path of frames.
-_C.AVA.FRAME_DIR = "/mnt/fair-flash3-east/ava_trainval_frames.img/"
+_C.AVA.FRAME_DIR = "D:\\works\\AVA\\frames"
 
 # Directory path for files of frame lists.
 _C.AVA.FRAME_LIST_DIR = (
-    "/mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/"
+    "D:\\works\\AVA\\frame_lists"
 )
 
 # Directory path for annotation files.
 _C.AVA.ANNOTATION_DIR = (
-    "/mnt/vol/gfsai-flash3-east/ai-group/users/haoqifan/ava/frame_list/"
+    "D:\\works\\AVA\\annotations"
 )
 
 # Filenames of training samples list files.
