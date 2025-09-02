@@ -13,6 +13,13 @@ python tools/run_net.py \
   NUM_GPUS 2 \
   TRAIN.BATCH_SIZE 16 \
 ```
+
+### train AVA Dataset in win server 2019
+```
+>python tools/run_net.py   --cfg ./demo/AVA/SLOWFAST_32x2_R101_50_50.yaml   --opts DATA.PATH_TO_DATA_DIR "D:\\works\\AVA"   TRAIN.ENABLE True NUM_GPUS 4   TRAIN.BATCH_SIZE 64
+```
+
+
 You may need to pass location of your dataset in the command line by adding `DATA.PATH_TO_DATA_DIR path_to_your_dataset`, or you can simply add
 
 ```

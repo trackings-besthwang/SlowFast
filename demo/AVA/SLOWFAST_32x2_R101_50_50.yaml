@@ -45,9 +45,14 @@ BN:
   USE_PRECISE_STATS: False
   NUM_BATCHES_PRECISE: 200
 SOLVER:
+  BASE_LR: 0.1                       
+  LR_POLICY: steps_with_relative_lrs  
+  STEPS: [10, 20]
+  LRS: [1.0, 0.1, 0.01]                     
+  MAX_EPOCH: 30                       
+  OPTIMIZING_METHOD: sgd              
   MOMENTUM: 0.9
   WEIGHT_DECAY: 1e-7
-  OPTIMIZING_METHOD: sgd
 MODEL:
   NUM_CLASSES: 80
   ARCH: slowfast
