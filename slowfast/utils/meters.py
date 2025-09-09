@@ -103,7 +103,7 @@ class AVAMeter:
             stats = {
                 "_type": "{}_iter".format(self.mode),
                 "cur_epoch": "{}/{}".format(cur_epoch + 1, self.cfg.SOLVER.MAX_EPOCH),
-                "cur_iter": "{}".format(cur_iter + 1),
+                "cur_iter": "{}/{}".format(cur_iter + 1, self.overall_iters),
                 "eta": eta,
                 "dt": self.iter_timer.seconds(),
                 "dt_data": self.data_timer.seconds(),

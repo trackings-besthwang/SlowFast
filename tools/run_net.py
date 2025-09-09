@@ -11,6 +11,28 @@ from test_net import test
 from train_net import train
 from visualization import visualize
 
+"""
+setting for pycharm for trainning for short dataset
+--cfg
+./demo/AVA/SLOWFAST_32x2_R101_50_50.yaml
+--opts
+DATA.PATH_TO_DATA_DIR
+"D:\\works\\AVA"
+TRAIN.ENABLE
+True
+NUM_GPUS
+1
+TRAIN.BATCH_SIZE
+8
+AVA.TRAIN_LISTS
+['train_short.csv']
+AVA.TEST_LISTS
+['val_short.csv']
+AVA.TRAIN_GT_BOX_LISTS
+['ava_train_v2.2_short.csv']
+AVA.TEST_PREDICT_BOX_LISTS
+['ava_val_v2.2_short.csv']
+"""
 
 def main():
     """

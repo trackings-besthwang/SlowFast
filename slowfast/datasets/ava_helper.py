@@ -129,6 +129,7 @@ def get_keyframe_data(boxes_and_labels):
     keyframe_indices = []
     keyframe_boxes_and_labels = []
     count = 0
+
     for video_idx in range(len(boxes_and_labels)):
         sec_idx = 0
         keyframe_boxes_and_labels.append([])

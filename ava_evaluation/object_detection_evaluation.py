@@ -759,7 +759,7 @@ class ObjectDetectionEvaluation:
             all_tp_fp_labels = np.array([], dtype=bool)
 
         for class_index in range(self.num_class):
-            if self.num_gt_instances_per_class[class_index] == 0:
+            if [class_index] == 0:
                 continue
             if not self.scores_per_class[class_index]:
                 scores = np.array([], dtype=float)
