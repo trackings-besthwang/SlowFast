@@ -56,13 +56,18 @@ MODEL:
   DROPOUT_RATE: 0.5
   HEAD_ACT: sigmoid
 TEST:
-  ENABLE: True
+  ENABLE: False
   DATASET: ava
   BATCH_SIZE: 8
 DATA_LOADER:
   NUM_WORKERS: 2
   PIN_MEMORY: True
-NUM_GPUS: 8
+NUM_GPUS: 1
 NUM_SHARDS: 1
 RNG_SEED: 0
 OUTPUT_DIR: .
+DEMO:
+  ENABLE: True
+  LABEL_FILE_PATH:  "labels/ava_classids.json"
+  INPUT_VIDEO: "demo/archery.mp4"
+  OUTPUT_FILE: out.mp4

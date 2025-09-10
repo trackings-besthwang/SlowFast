@@ -141,6 +141,8 @@ class ResNetRoIHead(nn.Module):
         if self.detach_final_fc:
             x = x.detach()
         x = self.projection(x)
+
+
         x = self.act(x)
         return x
 

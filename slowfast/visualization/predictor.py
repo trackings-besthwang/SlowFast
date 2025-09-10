@@ -105,7 +105,7 @@ class Predictor:
                 bboxes = bboxes.detach().cpu()
 
         preds = preds.detach()
-        print(f"preds.shape:{preds.shape}")
+        #print(f"preds.shape:{preds.shape}")
         task.add_action_preds(preds)
         if bboxes is not None:
             task.add_bboxes(bboxes[:, 1:])

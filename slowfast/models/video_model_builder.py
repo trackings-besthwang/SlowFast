@@ -222,6 +222,9 @@ class SlowFast(nn.Module):
 
         temp_kernel = _TEMPORAL_KERNEL_BASIS[cfg.MODEL.ARCH]
 
+
+
+
         self.s1 = stem_helper.VideoModelStem(
             dim_in=cfg.DATA.INPUT_CHANNEL_NUM,
             dim_out=[width_per_group, width_per_group // cfg.SLOWFAST.BETA_INV],
