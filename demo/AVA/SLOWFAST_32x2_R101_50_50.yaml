@@ -61,7 +61,7 @@ MODEL:
   DROPOUT_RATE: 0.5
   HEAD_ACT: sigmoid
 TEST:
-  ENABLE: True
+  ENABLE: False
   DATASET: ava
   BATCH_SIZE: 16
 DATA_LOADER:

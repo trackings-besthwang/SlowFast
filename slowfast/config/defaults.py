@@ -981,7 +981,7 @@ _C.AVA.ANNOTATION_DIR = (
 _C.AVA.TRAIN_LISTS = ["train.csv"]
 
 # Filenames of test samples list files.
-_C.AVA.TEST_LISTS = ["val.csv"]
+_C.AVA.TEST_LISTS = ["val1.csv"]
 
 # Filenames of box list files for training. Note that we assume files which
 # contains predicted boxes will have a suffix "predicted_boxes" in the
