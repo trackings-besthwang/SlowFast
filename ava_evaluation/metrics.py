@@ -92,6 +92,8 @@ def compute_average_precision(precision, recall):
     if precision is None:
         if recall is not None:
             raise ValueError("If precision is None, recall must also be None")
+        if not hasattr(np, "NAN"):
+            np.NAN = np.nan
         return np.NAN
 
     if not isinstance(precision, np.ndarray) or not isinstance(recall, np.ndarray):

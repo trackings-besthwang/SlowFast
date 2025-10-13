@@ -30,4 +30,4 @@ python tools/run_net.py \
   DEMO.DETECTRON2_WEIGHTS detectron2://COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl\
   TEST.CHECKPOINT_FILE_PATH ./weights/SLOWFAST_32x2_R101_50_50.pkl \
   DETECTION.ENABLE True \
-  TRAIN.ENABLE False \
+  TRAIN.ENABLE False 

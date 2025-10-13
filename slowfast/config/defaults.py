@@ -965,23 +965,23 @@ _C.DETECTION.ROI_XFORM_RESOLUTION = 7
 _C.AVA = CfgNode()
 
 # Directory path of frames.
-_C.AVA.FRAME_DIR = "D:\\works\\AVA\\frames"
+_C.AVA.FRAME_DIR = "/home/developer/AVA/frames"
 
 # Directory path for files of frame lists.
 _C.AVA.FRAME_LIST_DIR = (
-    "D:\\works\\AVA\\frame_lists"
+    "/home/developer/AVA/frame_lists"
 )
 
 # Directory path for annotation files.
 _C.AVA.ANNOTATION_DIR = (
-    "D:\\works\\AVA\\annotations"
+    "/home/developer/AVA/annotations"
 )
 
 # Filenames of training samples list files.
 _C.AVA.TRAIN_LISTS = ["train.csv"]
 
 # Filenames of test samples list files.
-_C.AVA.TEST_LISTS = ["val1.csv"]
+_C.AVA.TEST_LISTS = ["val.csv"]
 
 # Filenames of box list files for training. Note that we assume files which
 # contains predicted boxes will have a suffix "predicted_boxes" in the
