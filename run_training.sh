@@ -8,4 +8,4 @@ python tools/run_net.py \
   DATA.PATH_TO_DATA_DIR  "/home/developer/AVA" \
   NUM_GPUS 1 \
   DEMO.ENABLE False \
-  TRAIN.BATCH_SIZE 4 
+  TRAIN.BATCH_SIZE 16 
